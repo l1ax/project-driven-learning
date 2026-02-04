@@ -1,250 +1,273 @@
-# Project-Driven Learning Plugin for Claude Code
+# Claude Code 项目驱动学习插件
 
-[English](README.md) | [中文](README.zh-CN.md)
+[English](README.en.md) | [中文](README.md)
 
-A comprehensive Claude Code plugin that helps you learn programming through hands-on project implementation. This plugin provides a structured approach to learning: create learning plans, scaffold projects, track progress, and get code reviews - all within your development workflow.
+一个全面的 Claude Code 插件，通过实践项目帮助你学习编程。这个插件提供了结构化的学习方法：创建学习计划、搭建项目脚手架、追踪进度、获得代码审查 - 所有这些都在你的开发工作流中完成。
 
-## 🎯 What This Plugin Does
+## 🎯 这个插件的作用
 
-This plugin transforms Claude Code into your personal learning assistant that:
+这个插件将 Claude Code 转变为你的个人学习助手，可以：
 
-1. **Creates Structured Learning Plans** - Breaks down complex skills into progressive stages
-2. **Scaffolds Projects** - Sets up project boilerplate with clear TODOs
-3. **Tracks Your Progress** - Monitors which stages you've completed
-4. **Reviews Your Code** - Provides detailed feedback on your implementations
-5. **Guides Your Learning** - Offers resources, hints, and encouragement
+1. **创建结构化的学习计划** - 将复杂技能拆解为渐进式阶段
+2. **搭建项目脚手架** - 设置项目样板代码并标记清晰的 TODO
+3. **追踪你的进度** - 监控你完成了哪些阶段
+4. **审查你的代码** - 对你的实现提供详细反馈
+5. **指导你的学习** - 提供资源、提示和鼓励
 
-## ✨ Key Features
+## 📥 安装
 
-- 📚 **Project-Driven Learning Plans** - Multi-stage learning roadmaps with clear goals
-- 🏗️ **Automatic Project Scaffolding** - Generates boilerplate for React, Python Flask, Vanilla JS, and more
-- 📊 **Progress Tracking** - JSON-based progress files that track your learning journey
-- 🔍 **Code Review Agent** - Automated reviews against acceptance criteria
-- 📝 **Task Management** - Clear TASKS.md files marking what you need to implement
-- 🎓 **Learning-Focused** - Provides structure without doing the work for you
+### 从 Marketplace 安装
 
-## 📦 What's Included
-
-### Skills
-- **`project-driven-learning`** - Generates comprehensive learning plans
-- **`project-scaffold`** - Scaffolds project structures with templates
-
-### Commands
-- `/project:plan` - Create a new learning plan
-- `/project:scaffold` - Set up project structure for a stage
-- `/project:progress` - Check your learning progress
-- `/project:complete` - Mark a stage as completed
-- `/project:review` - Request code review for your implementation
-
-### Agents
-- **`review.md`** - Intelligent code review agent that validates implementations
-
-### Templates
-Pre-built project templates for:
-- React (with Vite)
-- Python Flask
-- Vanilla JavaScript/HTML/CSS
-
-## 🚀 Quick Start
-
-### 1. Create a Learning Plan
-
+1. 添加 marketplace：
 ```bash
-/project:plan I want to learn React by building a Todo app
+/plugin marketplace add l1ax/project-driven-learning
 ```
 
-This will:
-- Ask about your experience level
-- Generate a multi-stage learning plan
-- Save to `./docs/plans/{date}-{project}/plan.md`
-- Initialize progress tracking in `progress.json`
+2. 安装插件：
+```bash
+/plugin install project-driven-learning@l1ax-plugin
+```
 
-### 2. Start First Stage
+### 验证安装
+
+安装后，验证插件已加载：
+```bash
+/plugin list
+```
+
+你应该能在已安装插件列表中看到 `project-driven-learning`。
+
+## ✨ 核心特性
+
+- 📚 **项目驱动的学习计划** - 多阶段学习路线图，目标明确
+- 🏗️ **自动项目脚手架** - 为 React、Python Flask、原生 JS 等生成样板代码
+- 📊 **进度追踪** - 基于 JSON 的进度文件追踪你的学习旅程
+- 🔍 **代码审查 Agent** - 根据验收标准自动审查
+- 📝 **任务管理** - 清晰的 TASKS.md 文件标记你需要实现的内容
+- 🎓 **以学习为中心** - 提供结构但不替你完成工作
+
+## 📦 包含的内容
+
+### Skills（技能）
+- **`project-driven-learning`** - 生成全面的学习计划
+- **`project-scaffold`** - 使用模板搭建项目结构
+
+### Commands（命令）
+- `/project:plan` - 创建新的学习计划
+- `/project:scaffold` - 为某个阶段设置项目结构
+- `/project:progress` - 查看你的学习进度
+- `/project:complete` - 标记一个阶段为已完成
+- `/project:review` - 请求审查你的实现代码
+
+### Agents（智能代理）
+- **`review.md`** - 智能代码审查 agent，验证实现
+
+### Templates（模板）
+预构建的项目模板：
+- React（使用 Vite）
+- Python Flask
+- 原生 JavaScript/HTML/CSS
+
+## 🚀 快速开始
+
+### 1. 创建学习计划
+
+```bash
+/project:plan 我想通过构建 Todo 应用来学习 React
+```
+
+这将会：
+- 询问你的经验水平
+- 生成多阶段学习计划
+- 保存到 `./docs/plans/{日期}-{项目}/plan.md`
+- 在 `progress.json` 中初始化进度追踪
+
+### 2. 开始第一阶段
 
 ```bash
 /project:scaffold
 ```
 
-This will:
-- Read your learning plan
-- Detect the technology stack
-- Create project structure in `./projects/{project-name}/`
-- Generate boilerplate code with TODO markers
-- Create TASKS.md with implementation checklist
+这将会：
+- 读取你的学习计划
+- 检测技术栈
+- 在 `./projects/{项目名}/` 创建项目结构
+- 生成带有 TODO 标记的样板代码
+- 创建 TASKS.md 实现清单
 
-### 3. Implement the Code
+### 3. 实现代码
 
-Work on the tasks marked in:
-- Files with `TODO` and `USER IMPLEMENTATION REQUIRED` comments
-- `TASKS.md` checklist
+完成标记在以下位置的任务：
+- 带有 `TODO` 和 `USER IMPLEMENTATION REQUIRED` 注释的文件
+- `TASKS.md` 清单
 
-### 4. Check Your Progress (Optional)
+### 4. 查看进度（可选）
 
 ```bash
 /project:progress
 ```
 
-See which stages are completed, in progress, or not started.
+查看哪些阶段已完成、正在进行或未开始。
 
-### 5. Request Code Review
+### 5. 请求代码审查
 
 ```bash
 /project:review
 ```
 
-The review agent will:
-- Check your implementation against acceptance criteria
-- Analyze code quality
-- Provide detailed feedback
-- Save review report to `./docs/plans/{project}/reviews/`
+审查 agent 将会：
+- 根据验收标准检查你的实现
+- 分析代码质量
+- 提供详细反馈
+- 保存审查报告到 `./docs/plans/{项目}/reviews/`
 
-### 6. Mark Stage Complete
+### 6. 标记阶段完成
 
 ```bash
 /project:complete
 ```
 
-This updates your progress and optionally scaffolds the next stage.
+这会更新你的进度，并可选择搭建下一阶段。
 
-### 7. Continue to Next Stage
+### 7. 继续下一阶段
 
 ```bash
 /project:scaffold stage 2
 ```
 
-Repeat steps 3-7 for each learning stage!
+为每个学习阶段重复步骤 3-7！
 
-## 📁 Directory Structure
+## 📁 目录结构
 
-After using this plugin, your project will look like:
+使用这个插件后，你的项目将如下所示：
 
 ```
-your-project/
+你的项目/
 ├── docs/
 │   └── plans/
 │       └── 2026-02-02-react-todo-app/
-│           ├── plan.md                 # Learning plan
-│           ├── progress.json           # Progress tracking
-│           └── reviews/                # Code review reports
+│           ├── plan.md                 # 学习计划
+│           ├── progress.json           # 进度追踪
+│           └── reviews/                # 代码审查报告
 │               ├── stage-1-review.md
 │               └── stage-2-review.md
 ├── projects/
-│   └── react-todo-app/                 # Your actual project
-│       ├── TASKS.md                    # What to implement
-│       ├── README.md                   # Setup instructions
-│       ├── package.json                # Dependencies
+│   └── react-todo-app/                 # 你的实际项目
+│       ├── TASKS.md                    # 需要实现的内容
+│       ├── README.md                   # 设置说明
+│       ├── package.json                # 依赖
 │       └── src/
-│           ├── App.jsx                 # Your implementation
+│           ├── App.jsx                 # 你的实现
 │           └── ...
 ├── .claude-plugin/
-│   └── plugin.json                     # Plugin metadata
-├── commands/                           # Command definitions
+│   └── plugin.json                     # 插件元数据
+├── commands/                           # 命令定义
 │   ├── plan.md
 │   ├── scaffold.md
 │   ├── progress.md
 │   ├── complete.md
 │   └── review.md
 ├── agents/
-│   └── review.md                       # Review agent
+│   └── review.md                       # 审查 agent
 └── skills/
     ├── project-driven-learning/
     └── project-scaffold/
 ```
 
-## 🎓 Learning Workflow Example
+## 🎓 学习工作流示例
 
-Let's say you want to learn React:
+假设你想学习 React：
 
-### Step 1: Plan
+### 步骤 1：规划
 ```
-You: /project:plan I want to learn React by building a Todo app
+你: /project:plan 我想通过构建 Todo 应用来学习 React
 
-Claude: I'll help you create a learning plan! Let me ask a few questions...
-        [Creates structured 5-stage learning plan]
+Claude: 我会帮你创建学习计划！让我问几个问题...
+        [创建结构化的 5 阶段学习计划]
 
-        ✅ Plan saved to: ./docs/plans/2026-02-02-react-todo-app/plan.md
+        ✅ 计划已保存到: ./docs/plans/2026-02-02-react-todo-app/plan.md
 ```
 
-### Step 2: Scaffold
+### 步骤 2：搭建
 ```
-You: /project:scaffold
+你: /project:scaffold
 
-Claude: ✅ Project scaffolded successfully!
-        Location: ./projects/react-todo-app/
-        Technology: React + Vite
-        Stage: 1 - Setup & Basic Components
+Claude: ✅ 项目脚手架搭建成功！
+        位置: ./projects/react-todo-app/
+        技术栈: React + Vite
+        阶段: 1 - 设置和基础组件
 
-        Next steps:
+        下一步:
         1. cd projects/react-todo-app
         2. npm install
-        3. Review TASKS.md
+        3. 查看 TASKS.md
         4. npm run dev
 ```
 
-### Step 3: Implement
+### 步骤 3：实现
 ```
-You: [Work on the code, implement TODO items]
-```
-
-### Step 4: Review
-```
-You: /project:review
-
-Claude: # Stage 1 Review Report
-
-        📊 Overall Assessment: ✅ Pass
-        Completion Score: 8.5/10
-
-        ✅ Acceptance Criteria Review
-        1. ✅ Basic component structure created
-        2. ✅ State management implemented
-        3. ⚠️ Event handlers work but could be optimized
-
-        [Detailed feedback and suggestions]
-
-        🎯 Next Steps: Ready to proceed!
-        Run /project:complete to mark this stage done.
+你: [完成代码工作，实现 TODO 项目]
 ```
 
-### Step 5: Complete & Continue
+### 步骤 4：审查
 ```
-You: /project:complete
+你: /project:review
 
-Claude: 🎉 Congratulations! Stage 1 completed!
-        Progress: 1 of 5 stages done (20%)
-        Ready for Stage 2?
+Claude: # 阶段 1 审查报告
 
-You: /project:scaffold stage 2
+        📊 总体评估: ✅ 通过
+        完成度评分: 8.5/10
 
-Claude: [Sets up structure for stage 2]
+        ✅ 验收标准审查
+        1. ✅ 基础组件结构已创建
+        2. ✅ 状态管理已实现
+        3. ⚠️ 事件处理器工作正常但可以优化
+
+        [详细反馈和建议]
+
+        🎯 下一步: 准备继续！
+        运行 /project:complete 标记此阶段完成。
 ```
 
-## 🛠️ Supported Technologies
+### 步骤 5：完成并继续
+```
+你: /project:complete
 
-Currently includes templates for:
+Claude: 🎉 恭喜！阶段 1 已完成！
+        进度: 5 个阶段中完成了 1 个（20%）
+        准备好进入阶段 2 了吗？
 
-- **Frontend**
-  - React (with Vite)
+你: /project:scaffold stage 2
+
+Claude: [为阶段 2 设置结构]
+```
+
+## 🛠️ 支持的技术
+
+当前包含以下模板：
+
+- **前端**
+  - React（使用 Vite）
   - Vue.js
-  - Vanilla JavaScript/HTML/CSS
+  - 原生 JavaScript/HTML/CSS
 
-- **Backend**
+- **后端**
   - Python Flask
   - Node.js/Express
   - Python FastAPI
 
-- **Mobile**
+- **移动端**
   - React Native
 
-- **CLI Tools**
+- **CLI 工具**
   - Python CLI
   - Node.js CLI
 
-Don't see your stack? The plugin can still create custom structures based on best practices!
+没看到你的技术栈？插件仍然可以基于最佳实践创建自定义结构！
 
-## 📋 Progress Tracking
+## 📋 进度追踪
 
-The `progress.json` file tracks your learning journey:
+`progress.json` 文件追踪你的学习旅程：
 
 ```json
 {
@@ -255,14 +278,14 @@ The `progress.json` file tracks your learning journey:
   "stages": [
     {
       "stage_number": 1,
-      "stage_name": "Setup & Basic Components",
+      "stage_name": "设置和基础组件",
       "status": "completed",
       "started_at": "2026-02-02T10:00:00Z",
       "completed_at": "2026-02-02T14:30:00Z"
     },
     {
       "stage_number": 2,
-      "stage_name": "State Management",
+      "stage_name": "状态管理",
       "status": "in_progress",
       "started_at": "2026-02-02T15:00:00Z",
       "completed_at": null
@@ -271,101 +294,101 @@ The `progress.json` file tracks your learning journey:
 }
 ```
 
-## 🤖 Code Review Features
+## 🤖 代码审查功能
 
-The review agent provides:
+审查 agent 提供：
 
-- **Acceptance Criteria Validation** - Checks all requirements are met
-- **Code Quality Assessment** - Evaluates structure, naming, organization
-- **Learning Objectives Check** - Verifies you understood the concepts
-- **Constructive Feedback** - Specific, actionable suggestions
-- **Bug Detection** - Identifies common issues and errors
-- **Best Practices** - Highlights good patterns and anti-patterns
-- **Next Steps** - Clear guidance on whether to proceed or improve
+- **验收标准验证** - 检查是否满足所有要求
+- **代码质量评估** - 评估结构、命名、组织
+- **学习目标检查** - 验证你是否理解了概念
+- **建设性反馈** - 具体的、可操作的建议
+- **Bug 检测** - 识别常见问题和错误
+- **最佳实践** - 突出好的模式和反模式
+- **下一步指导** - 明确指导是继续还是改进
 
-## 💡 Best Practices
+## 💡 最佳实践
 
-1. **Read the Plan First** - Understand the full learning journey before starting
-2. **One Stage at a Time** - Don't rush through stages
-3. **Review Before Completing** - Use `/project:review` to validate your work
-4. **Experiment Beyond Requirements** - The TODOs are minimums, explore more!
-5. **Keep Code Organized** - Follow the structure the scaffold provides
-6. **Check Progress Regularly** - Use `/project:progress` to stay motivated
+1. **先阅读计划** - 在开始前了解完整的学习旅程
+2. **一次一个阶段** - 不要匆忙完成各个阶段
+3. **完成前先审查** - 使用 `/project:review` 验证你的工作
+4. **超越要求去实验** - TODO 只是最低要求，多多探索！
+5. **保持代码有序** - 遵循脚手架提供的结构
+6. **定期检查进度** - 使用 `/project:progress` 保持动力
 
-## 🔧 Customization
+## 🔧 自定义
 
-### Adding New Templates
+### 添加新模板
 
-Add templates in `skills/project-scaffold/assets/templates/{tech-stack}/`:
+在 `skills/project-scaffold/assets/templates/{技术栈}/` 中添加模板：
 
 ```
 templates/
-└── your-tech/
+└── 你的技术/
     ├── package.json
     ├── README.md
     └── src/
         └── main.js
 ```
 
-Update `references/tech_stacks.md` with scaffolding guidelines.
+在 `references/tech_stacks.md` 中更新脚手架指南。
 
-### Modifying Commands
+### 修改命令
 
-Edit files in `commands/` to change command behavior or add new commands.
+编辑 `commands/` 中的文件以改变命令行为或添加新命令。
 
-### Customizing Review Criteria
+### 自定义审查标准
 
-Edit `agents/review.md` to adjust review standards or add technology-specific checks.
+编辑 `agents/review.md` 以调整审查标准或添加特定技术的检查。
 
-## 📚 Example Projects
+## 📚 示例项目
 
-This plugin can help you learn by building:
+这个插件可以帮助你通过构建以下项目来学习：
 
-- **React Todo App** - Learn components, state, events
-- **Python Flask API** - Learn routing, request handling, JSON responses
-- **Vanilla JS Calculator** - Learn DOM manipulation, event handling
-- **React Weather Dashboard** - Learn API integration, async/await
-- **Python CLI Tool** - Learn argument parsing, file I/O
-- **Express REST API** - Learn CRUD operations, middleware
+- **React Todo 应用** - 学习组件、状态、事件
+- **Python Flask API** - 学习路由、请求处理、JSON 响应
+- **原生 JS 计算器** - 学习 DOM 操作、事件处理
+- **React 天气仪表板** - 学习 API 集成、async/await
+- **Python CLI 工具** - 学习参数解析、文件 I/O
+- **Express REST API** - 学习 CRUD 操作、中间件
 
-## ❓ FAQ
+## ❓ 常见问题
 
-**Q: Does this write code for me?**
-A: No! It provides structure, boilerplate, and TODOs. You implement the logic to learn.
+**问：这会帮我写代码吗？**
+答：不会！它提供结构、样板代码和 TODO。你需要实现逻辑来学习。
 
-**Q: Can I use this for advanced topics?**
-A: Yes! Create plans for any complexity level - the plugin adapts to your goals.
+**问：我可以用它学习高级主题吗？**
+答：可以！为任何复杂度级别创建计划 - 插件会适应你的目标。
 
-**Q: What if my tech stack isn't supported?**
-A: The plugin can still create structure following best practices. You can also add custom templates.
+**问：如果我的技术栈不被支持怎么办？**
+答：插件仍然可以按照最佳实践创建结构。你也可以添加自定义模板。
 
-**Q: Can I skip stages?**
-A: Not recommended for learning, but you can scaffold any stage number directly.
+**问：我可以跳过阶段吗？**
+答：对于学习来说不推荐，但你可以直接搭建任何阶段号。
 
-**Q: Is the review agent strict?**
-A: It's learning-focused: constructive, educational, and encourages growth over perfection.
+**问：审查 agent 严格吗？**
+答：它以学习为重点：建设性的、教育性的，鼓励成长而非追求完美。
 
-**Q: Can I use this for team learning?**
-A: Yes! The progress files can be shared and reviewed by mentors or peers.
+**问：我可以用它进行团队学习吗？**
+答：可以！进度文件可以被分享并由导师或同伴审查。
 
-## 🤝 Contributing
+## 🤝 贡献
 
-Have ideas for improvements?
-- Add new technology templates
-- Improve review criteria
-- Enhance command functionality
-- Share example learning plans
+有改进的想法吗？
+- 添加新的技术模板
+- 改进审查标准
+- 增强命令功能
+- 分享示例学习计划
 
-## 📄 License
+## 📄 许可证
 
-This plugin is provided as-is for educational purposes.
+本插件按原样提供，用于教育目的。
 
-## 🎉 Happy Learning!
+## 🎉 学习愉快！
 
-Remember: The goal isn't to finish quickly - it's to **learn deeply** through hands-on practice. Take your time, experiment, and enjoy the process!
+记住：目标不是快速完成 - 而是通过实践**深入学习**。慢慢来，多实验，享受这个过程！
 
 ---
 
-**Created for:** Claude Code
-**Version:** 1.0.0
-**Author:** l1ax
+**适用于:** Claude Code
+**版本:** 1.0.0
+**作者:** l1ax
