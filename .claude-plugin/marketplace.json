@@ -1,0 +1,18 @@
+{
+  "name": "l1ax-plugin",
+  "description": "Development marketplace for project-driven-learning skills",
+  "owner": {
+    "name": "l1ax"
+  },
+  "plugins": [
+    {
+        "name": "project-driven-learning",
+        "description": "Retrieves comprehensive technical explanations for programming concepts, APIs, and frameworks. Use this tool when the user asks to learn a new technology, understand API usage scenarios, or dive deep into framework implementation principles. It provides structured learning content including definition, usage examples, best practices, and internal mechanics.",
+        "version": "1.0.0",
+        "source": "./",
+        "author": {
+            "name": "l1ax"
+        }
+    }
+  ]
+}
