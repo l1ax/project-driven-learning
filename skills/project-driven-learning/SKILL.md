@@ -39,10 +39,7 @@ Based on the user's goal and experience level:
 **If user needs project suggestions:**
 - Propose 2-3 project options that teach the target skills
 - Match complexity to their experience level
-- Examples:
-  - **Beginner**: Todo app, Calculator, Weather dashboard
-  - **Intermediate**: Blog with CMS, E-commerce site, Chat application
-  - **Advanced**: Social network, Real-time collaboration tool, Microservices system
+- Focus on projects that allow progressive learning and clear milestones
 
 ### 3. Break Down into Stages
 
@@ -65,78 +62,25 @@ Use the guidelines in `references/project_breakdown.md` to structure the project
 
 ### 4. Present the Learning Plan
 
-**Format the plan clearly:**
+**Create a well-structured learning plan that includes:**
 
-```markdown
-# [Project Name]: Learning Plan
+For the overall project:
+- Project overview and what they'll build
+- Complete list of concepts/skills they'll learn
+- Prerequisites needed before starting
 
-## Project Overview
-[1-2 sentences describing what they'll build]
+For each stage:
+- **Goal**: Clear statement of what will be achieved
+- **Prerequisites**: Knowledge needed for this stage
+- **What you'll learn**: New concepts introduced
+- **Implementation tasks**: Specific things to build
+- **Acceptance criteria**: Measurable completion checklist
+- **Learning resources**: Curated materials (2-3 focused resources)
+- **Knowledge check**: Questions to verify understanding
 
-## What You'll Learn
-- Concept/skill 1
-- Concept/skill 2
-- ...
+Follow the stage structure template in `references/project_breakdown.md` for detailed guidance.
 
-## Prerequisites
-Before starting, you should know:
-- Prerequisite 1
-- Prerequisite 2
-(If user doesn't have these, recommend resources or adjust project)
-
----
-
-## Stage 1: [Name]
-
-**Goal**: [What will be achieved in this stage]
-
-**Prerequisites for this stage**:
-- Knowledge point 1
-- Knowledge point 2
-
-**What you'll learn**:
-- New concept 1
-- New concept 2
-
-**Implementation tasks**:
-1. Task 1
-2. Task 2
-3. Task 3
-
-**Acceptance criteria**:
-- [ ] Criterion 1
-- [ ] Criterion 2
-- [ ] Criterion 3
-
-**Learning resources**:
-- [Resource Title](URL) - Description of what to focus on
-- [Resource Title](URL) - Description
-
-**Knowledge check** (before moving to next stage):
-Ask yourself these questions:
-1. Can you explain [concept] in your own words?
-2. Can you write [code pattern] without looking at examples?
-3. Do you understand why we use [approach] instead of [alternative]?
-
----
-
-## Stage 2: [Name]
-[Same structure as Stage 1]
-
-...
-
----
-
-## Final Notes
-
-**Learning approach**:
-- Complete each stage fully before moving on
-- Don't rush - understanding matters more than speed
-- If you get stuck, review the learning resources
-- Feel free to experiment beyond the requirements
-
-**When you're ready to start**: Let me know which stage you're beginning, and I can provide additional guidance or answer questions. When you finish a stage, share what you've built and I'll help verify it meets the criteria before moving forward.
-```
+**Save the plan** to `./docs/plans/YYYY-MM-DD-{project-name}/plan.md` for future reference.
 
 ### 5. Support Throughout Learning Journey
 
@@ -186,25 +130,22 @@ When suggesting learning resources, follow guidelines in `references/learning_re
 
 **User**: "I want to learn React by building something practical"
 
-**Response**:
-```
-I'll help you learn React through project-based practice! Let me understand your goal better:
+**Your response approach:**
+1. Ask about their experience level with JavaScript and frameworks
+2. Ask if they have a project idea or need suggestions
+3. Clarify specific React concepts they want to focus on
+4. Create a personalized learning plan following the workflow above
+5. Save the plan to `./docs/plans/` directory
 
-1. **Experience level**: Have you used JavaScript before? Any experience with other frameworks?
-2. **Project preference**: Do you have a project idea in mind, or would you like suggestions?
-3. **Learning goal**: Are there specific React concepts you want to focus on (hooks, state management, routing)?
-```
+## Key Principles for Effective Learning Plans
 
-[After user responds, create personalized learning plan following the workflow above]
-
-## Tips for Effective Learning Plans
-
-- **Be specific in tasks**: Instead of "Add styling", say "Style the todo list with CSS Grid and add hover effects"
-- **Include why, not just what**: Help users understand the purpose behind each concept
-- **Progressive concept introduction**: Don't overwhelm with too many new ideas at once
-- **Realistic acceptance criteria**: Users should be able to objectively verify completion
-- **Curate resources**: 2-3 focused resources per stage, not a long list
+- **Specific tasks**: Provide concrete, actionable tasks rather than vague instructions
+- **Explain the why**: Help users understand the purpose behind each concept
+- **Progressive complexity**: Don't overwhelm with too many new ideas at once
+- **Objective criteria**: Users should be able to verify completion independently
+- **Curated resources**: 2-3 focused, high-quality resources per stage
 - **Encourage exploration**: Invite users to experiment beyond minimum requirements
+- **Appropriate pacing**: Balance challenge with achievability
 
 ## References
 

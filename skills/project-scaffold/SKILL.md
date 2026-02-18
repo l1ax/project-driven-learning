@@ -53,135 +53,73 @@ Read the plan file and extract:
 Create the project in `./projects/{project-name}/`
 
 **Directory structure based on tech stack:**
-See `references/tech_stacks.md` for specific structure for each technology.
+Refer to `references/tech_stacks.md` for guidance on common patterns for different technologies.
 
 **General approach:**
-1. Create necessary directories
-2. Copy appropriate template files from `assets/templates/`
-3. Replace placeholders with actual values
-4. Add stage-specific TODO comments
-
-**Placeholder replacements:**
-- `{{PROJECT_NAME}}` → actual project name
-- `{{PROJECT_DESCRIPTION}}` → from plan
-- `{{STAGE_NAME}}` → current stage name
-- `{{STAGE_GOALS}}` → stage goals from plan
-- `{{STAGE_TASKS}}` → formatted task list
-- `{{ACCEPTANCE_CRITERIA}}` → formatted criteria
-- `{{LEARNING_RESOURCES}}` → formatted resources
+1. Analyze the detected technology stack and stage requirements
+2. Create appropriate directory structure following best practices
+3. Generate necessary configuration files (package.json, requirements.txt, etc.)
+4. Create entry point files with basic boilerplate
+5. Add clear TODO comments marking areas for user implementation
 
 ### 4. Mark User Implementation Areas
 
-**Use two approaches:**
+**Use two complementary approaches:**
 
 **A. In-file TODO comments:**
-```javascript
-// TODO: Implement user authentication logic
-// TASK: Add form validation
-// IMPLEMENT: Connect to API endpoint
-```
+Add clear, specific TODO/TASK/IMPLEMENT comments in code files to mark areas for user implementation.
 
 **B. TASKS.md file at project root:**
-```markdown
-# Implementation Tasks - Stage {N}
-
-## Overview
-Brief description of what needs to be implemented in this stage.
-
-## Tasks
-
-### 1. [Task Name]
-**File:** `path/to/file.js`
-**Description:** What needs to be done
-**Hints:**
-- Hint 1
-- Hint 2
-
-### 2. [Task Name]
-...
-
-## Acceptance Criteria
-- [ ] Criterion 1
-- [ ] Criterion 2
-
-## Resources
-- [Resource name](URL)
-```
+Create a comprehensive task checklist that includes:
+- Overview of the stage goals
+- Numbered tasks with file locations and descriptions
+- Implementation hints where helpful
+- Acceptance criteria checklist
+- Relevant learning resources
 
 **What to mark for user implementation:**
-- Core business logic
-- Feature-specific code
-- API endpoints and handlers
-- Component implementations
-- State management
-- Data validation
+- Core business logic and feature-specific code
+- API endpoints, handlers, and data processing
+- Component implementations and state management
+- Data validation and custom utilities
 
 **What to provide complete:**
-- Project configuration (package.json, vite.config.js, etc.)
-- Build tool setup
+- All project configuration (package.json, build configs, etc.)
 - Entry points with basic structure
-- Basic styling setup
-- README with instructions
+- Basic styling setup and README with instructions
 
 ### 5. Generate Output Summary
 
-After scaffolding, provide the user with:
+After scaffolding, provide the user with a clear, helpful summary:
 
-```markdown
-✅ Project scaffolded successfully!
+**Include:**
+- Project location and technology stack
+- Stage number and name
+- Next steps: navigation, dependency installation, starting dev server
+- Brief summary of what they need to implement
+- Key files to check with descriptions
+- Acceptance criteria from the plan
+- Encouragement and offer to help
 
-**Location:** `./projects/{project-name}/`
+Keep the summary concise and actionable, focusing on getting the user started quickly.
 
-**Technology:** {detected tech stack}
+## Project Generation Principles
 
-**Stage:** {stage number and name}
+For any detected technology stack:
 
-## Next Steps
+1. **Follow established conventions** - Use the community-standard directory structure and tooling
+2. **Consult tech_stacks.md** - Reference patterns and best practices for the specific technology
+3. **Create minimal boilerplate** - Provide only what's needed to get started
+4. **Clear separation** - Distinguish between complete boilerplate and user implementation areas
+5. **Configuration first** - Ensure all build tools, dependencies, and configs are properly set up
 
-1. Navigate to the project:
-   ```bash
-   cd projects/{project-name}
-   ```
+**Key files to always include:**
+- Project configuration (package.json, requirements.txt, Cargo.toml, etc.)
+- Entry point with basic structure
+- README with setup and run instructions
+- TASKS.md with clear implementation checklist
 
-2. Install dependencies:
-   ```bash
-   {installation command}
-   ```
-
-3. Review TASKS.md for implementation checklist
-
-4. Start development:
-   ```bash
-   {dev command}
-   ```
-
-## What You Need to Implement
-
-{Brief summary of main tasks}
-
-Check these files:
-- `{file1}` - {what to implement}
-- `{file2}` - {what to implement}
-
-## Acceptance Criteria
-
-{List criteria from plan}
-
-Good luck! Feel free to ask questions as you implement the features.
-```
-
-## Template Selection
-
-Based on detected technology, use appropriate template from `assets/templates/`:
-
-- **react** → React + Vite project
-- **python-flask** → Flask API project
-- **vanilla-js** → HTML/CSS/JavaScript project
-
-For technologies not having templates:
-1. Create basic structure manually following patterns in `references/tech_stacks.md`
-2. Ensure proper configuration files
-3. Add clear TODO comments
+**Adapt dynamically** - If the technology isn't explicitly covered in tech_stacks.md, use your knowledge of that ecosystem's conventions and best practices to create an appropriate structure.
 
 ## Smart Scaffolding
 
@@ -210,9 +148,9 @@ For technologies not having templates:
 1. Look for recent plan in `./docs/plans/`
 2. Parse stage 1 information
 3. Detect React as technology
-4. Create `./projects/{project-name}/` using React template
-5. Replace placeholders
-6. Generate TASKS.md
+4. Create `./projects/{project-name}/` with React + Vite structure
+5. Generate appropriate configuration and boilerplate files
+6. Generate TASKS.md with stage-specific tasks
 7. Provide next steps to user
 
 **User:** "Set up stage 2"

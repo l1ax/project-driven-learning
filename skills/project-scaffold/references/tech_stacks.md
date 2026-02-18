@@ -1,17 +1,23 @@
-# Technology Stack Templates
+# Technology Stack Reference
 
-This document provides guidance on scaffolding projects for different technology stacks.
+This document provides guidance on scaffolding projects for different technology stacks. Use these as **reference patterns**, not rigid templates. Adapt based on the specific learning plan requirements and modern best practices.
 
-## Template Structure Guidelines
+## Scaffolding Principles
 
-When scaffolding a project, consider:
-1. **Core dependencies**: Essential packages and configuration
-2. **Development setup**: Dev dependencies, scripts, tooling
-3. **Project structure**: Directories, file organization
-4. **Boilerplate code**: Minimal working examples
-5. **User tasks**: Files that learners should implement themselves
+When creating project structure:
+1. **Follow ecosystem conventions** - Use community-standard patterns
+2. **Minimal viable setup** - Include only what's needed to start
+3. **Clear organization** - Logical directory structure
+4. **Modern tooling** - Use current, recommended tools
+5. **Learning-focused** - Mark implementation areas clearly
 
-## Common Technology Stacks
+## Reference Patterns by Technology
+
+The following are **reference patterns** to guide project setup. Adapt them based on:
+- Current best practices in the ecosystem
+- Specific learning plan requirements
+- Stage complexity and user experience level
+- Modern tooling updates
 
 ### Frontend Web
 
@@ -163,73 +169,83 @@ project-name/
 └── README.md          # Setup instructions
 ```
 
-## Determining What to Scaffold
+## Scaffolding Decision Guidelines
 
-### Stage 1: Always Provide
-- Project initialization files (package.json, requirements.txt)
-- Build/dev tool configuration
-- Basic entry points
-- Minimal working example
-- README with setup instructions
+### For Stage 1
+**Provide complete setup:**
+- All configuration files needed to run the project
+- Build/dev tool setup with proper scripts
+- Entry points with minimal boilerplate
+- A working "hello world" or minimal example
+- Comprehensive README with setup and running instructions
+- Clear markers (TODOs) for where user implements features
 
-### Stage 2+: Provide Structure
-- Directory structure
-- Config files
-- Helper utilities
-- Example patterns
-- Files with TODO comments for implementation
+### For Stage 2+
+**Build incrementally:**
+- Add new directories/files as needed for new features
+- Preserve existing user implementations
+- Provide new boilerplate only for new concepts
+- Update README if new setup steps are needed
+- Add stage-specific TODOs
 
-### What Users Should Implement
-- Core business logic
-- Feature-specific components
-- API route handlers
-- Data models
-- Complex state management
-- Custom utilities
+### Implementation vs. Boilerplate
 
-## File Marking Conventions
+**Users should implement (mark with TODOs):**
+- All business logic specific to the project
+- Feature implementations described in stage tasks
+- API route handlers and their logic
+- Data models and schemas
+- State management logic
+- Custom validation and utilities
 
-### TODO Comments
-```javascript
-// TODO: Implement user authentication logic
-// TASK: Create a function that validates user input
-// IMPLEMENT: Add error handling for API calls
-```
+**Provide complete boilerplate:**
+- Configuration files (package.json, tsconfig.json, etc.)
+- Build tool setup (Vite, Webpack configs)
+- Basic entry points and app initialization
+- Development server setup
+- Basic styling structure
+- Testing framework setup (if stage requires it)
 
-### File-level markers
-```javascript
-/**
- * USER IMPLEMENTATION REQUIRED
- *
- * This file needs to be completed by the user.
- *
- * Tasks:
- * 1. Define the User model with required fields
- * 2. Implement validation methods
- * 3. Add database connection logic
- */
-```
+## Implementation Marking Best Practices
 
-## Technology Detection
+**In-code markers:**
+Use clear, specific TODO comments that explain what needs to be implemented and why:
+- `TODO:` for implementation tasks
+- `TASK:` for specific sub-tasks
+- `IMPLEMENT:` for core logic to be added
 
-Use these indicators from the learning plan to determine tech stack:
+Be specific about what needs to be done, not just "implement this function."
 
-**Frontend:**
-- Keywords: React, Vue, Angular, Svelte, HTML/CSS/JavaScript
-- Project types: "web app", "dashboard", "website"
+**File-level documentation:**
+For files that are mostly user implementation, add a header comment block explaining:
+- What this file is for
+- What the user needs to implement
+- Key tasks or components to complete
+- Any hints or important considerations
 
-**Backend:**
-- Keywords: Node.js, Express, Flask, FastAPI, Django
-- Project types: "API", "backend", "server"
+## Technology Detection Guidelines
 
-**Database:**
-- Keywords: MongoDB, PostgreSQL, MySQL, SQLite
-- Mentioned in prerequisites or stage tasks
+Analyze the learning plan to identify the technology stack:
 
-**Mobile:**
-- Keywords: React Native, Flutter
-- Project types: "mobile app", "iOS/Android"
+**Look for explicit mentions:**
+- Technology names in project title or description
+- Specific frameworks, libraries, or tools mentioned
+- Prerequisites that indicate the stack (e.g., "knowledge of Flask")
 
-**CLI:**
-- Keywords: command-line, CLI tool
-- Project types: "tool", "utility"
+**Infer from project type:**
+- "Web app", "dashboard", "website" → likely frontend framework
+- "API", "backend", "server" → backend framework
+- "Mobile app" → mobile framework
+- "CLI tool", "command-line" → CLI framework
+
+**Consider context clues:**
+- Database mentions → backend project likely needed
+- UI/UX focus → frontend project
+- Real-time features → may need WebSockets/specific backend
+
+**When multiple technologies apply:**
+- Prioritize what the user wants to learn (from learning plan)
+- Consider stage requirements
+- Choose appropriate architecture (monolith vs. separated frontend/backend)
+
+If uncertain, prefer simpler stack for beginners, more complete stack for advanced learners.
